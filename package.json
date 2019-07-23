@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/williamgurzoni/api-flatsys/issues"
   },
-  "homepage": "https://github.com/williamgurzoni/api-flatsys#readme"
+  "homepage": "https://github.com/williamgurzoni/api-flatsys#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.11.0"
+  }
 }
