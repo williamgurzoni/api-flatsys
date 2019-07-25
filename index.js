@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const db = require('./queries');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 app.use(
@@ -11,6 +11,15 @@ app.use(
     extended: true,
   })
 );
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, X-Total-Count, Accept");
+  res.header("Access-Control-Expose-Headers", "X-Total-Count");
+   
+  res.header("X-Total-Count", "3");
+  next();
+});
 
 app.get('/', (request, response) => {
   response.json({ info: 'Node.js, Express, and Postgres API' })

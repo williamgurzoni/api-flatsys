@@ -5,6 +5,7 @@ const Pool = require('pg').Pool;
 const pool = new Pool(config);
 
 const getCustomers = (request, response) => {
+  console.log('getting customers...');
   pool.query('SELECT * FROM customers', (error, results) => {
     if (error) {
       throw error;
